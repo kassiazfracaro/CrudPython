@@ -1,7 +1,13 @@
+from itertools import count
+
 faculdade = list()
 aluno = dict()
 
 
+id_gerado = count(start=1)
+def get_id():
+    return next(id_gerado)
+    
 def exibir_menu():
     print()
     print("\033[33m-\033[0m" * 30)
@@ -18,7 +24,7 @@ def exibir_menu():
 def cadastrar_aluno():
     while True:
         aluno.clear()
-        aluno['id'] = input("\n\033[1;34mID do aluno:  \033[0m")
+        aluno['id'] = str(get_id())
         aluno['nome'] = input("\033[1;34mNome do aluno:  \033[0m").upper()
         aluno['curso'] = input("\033[1;34mCurso:  \033[0m")
         aluno['semestre'] = input("\033[1;34mSemestre:  \033[0m")
